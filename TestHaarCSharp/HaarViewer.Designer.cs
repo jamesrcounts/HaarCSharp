@@ -268,7 +268,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
