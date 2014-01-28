@@ -1,6 +1,6 @@
 ﻿namespace TestHaarCSharp
 {
-    partial class Form1
+    partial class HaarViewer
     {
         /// <summary>
         /// Required designer variable.

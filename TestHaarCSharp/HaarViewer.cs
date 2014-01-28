@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace TestHaarCSharp
 {
-    public partial class Form1 : Form
+    public partial class HaarViewer : Form
     {
-        public Form1()
+        public HaarViewer()
         {
             InitializeComponent();
             OriginalImage = (Bitmap)pictureBox1.Image;
