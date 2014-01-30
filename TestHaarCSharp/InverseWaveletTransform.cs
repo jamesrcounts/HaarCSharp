@@ -9,6 +9,11 @@ namespace TestHaarCSharp
         {
         }
 
+        public InverseWaveletTransform(int width, int height)
+            : base(width, height)
+        {
+        }
+
         public override void Transform(ColorChannels channels)
         {
             foreach (var color in new[] { channels.Red, channels.Green, channels.Blue })

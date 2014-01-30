@@ -1,3 +1,5 @@
+using System;
+
 namespace TestHaarCSharp
 {
     public abstract class WaveletTransform
@@ -12,6 +14,11 @@ namespace TestHaarCSharp
             Iterations = iterations;
         }
 
+        protected WaveletTransform(int width, int height)
+        {
+            Iterations = GetMaxScale(width, height);
+        }
+
         protected int Iterations { get; private set; }
 
         public static WaveletTransform CreateTransform(bool forward, int iterations)
@@ -22,6 +29,11 @@ namespace TestHaarCSharp
             }
 
             return new InverseWaveletTransform(iterations);
+        }
+
+        public static int GetMaxScale(int width, int height)
+        {
+            return (int)(Math.Log(width < height ? width : height) / Math.Log(2));
         }
 
         public abstract void Transform(ColorChannels channels);

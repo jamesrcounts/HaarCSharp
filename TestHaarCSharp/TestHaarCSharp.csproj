@@ -53,6 +53,7 @@
     <Compile Include="HaarViewer.Designer.cs">
       <DependentUpon>HaarViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageProcessor.cs" />
     <Compile Include="InverseWaveletTransform.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
