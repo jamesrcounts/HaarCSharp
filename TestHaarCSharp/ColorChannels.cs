@@ -1,15 +1,15 @@
-using System;
-using System.Drawing;
-
 namespace TestHaarCSharp
 {
+    using System;
+    using System.Drawing;
+
     public abstract class ColorChannels
     {
         protected ColorChannels(int width, int height)
         {
-            Red = new double[width, height];
-            Green = new double[width, height];
-            Blue = new double[width, height];
+            this.Red = new double[width, height];
+            this.Green = new double[width, height];
+            this.Blue = new double[width, height];
         }
 
         public double[,] Blue { get; private set; }
@@ -24,6 +24,7 @@ namespace TestHaarCSharp
             {
                 return new SafeColorChannels(width, height);
             }
+
             return new UnsafeColorChannels(width, height);
         }
 
@@ -38,15 +39,17 @@ namespace TestHaarCSharp
                 return 0;
             }
 
-            var value = (toMax - toMin) * (x - fromMin) / (fromMax - fromMin) + toMin;
+            var value = ((toMax - toMin) * (x - fromMin)) / (fromMax - fromMin) + toMin;
             if (value > toMax)
             {
                 value = toMax;
             }
+
             if (value < toMin)
             {
                 value = toMin;
             }
+
             return value;
         }
     }

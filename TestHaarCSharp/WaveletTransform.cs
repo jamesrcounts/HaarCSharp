@@ -1,22 +1,25 @@
-using System;
-
 namespace TestHaarCSharp
 {
+    using System;
+
     public abstract class WaveletTransform
     {
         protected const double S0 = 0.5;
+
         protected const double S1 = 0.5;
+
         protected const double W0 = 0.5;
+
         protected const double W1 = -0.5;
 
         protected WaveletTransform(int iterations)
         {
-            Iterations = iterations;
+            this.Iterations = iterations;
         }
 
         protected WaveletTransform(int width, int height)
         {
-            Iterations = GetMaxScale(width, height);
+            this.Iterations = GetMaxScale(width, height);
         }
 
         protected int Iterations { get; private set; }

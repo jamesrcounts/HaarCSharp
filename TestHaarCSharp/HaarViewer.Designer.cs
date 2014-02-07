@@ -73,7 +73,7 @@
             this.btnBrowse.TabIndex = 4;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            this.btnBrowse.Click += new System.EventHandler(this.BtnBrowseClick);
             // 
             // panel1
             // 
@@ -198,7 +198,7 @@
             this.btnForwardSafe.TabIndex = 8;
             this.btnForwardSafe.Text = "Forward (Safe Code)";
             this.btnForwardSafe.UseVisualStyleBackColor = true;
-            this.btnForwardSafe.Click += new System.EventHandler(this.btnForwardSafe_Click);
+            this.btnForwardSafe.Click += new System.EventHandler(this.BtnForwardSafeClick);
             // 
             // btnForwardUnsafe
             // 
@@ -208,7 +208,7 @@
             this.btnForwardUnsafe.TabIndex = 9;
             this.btnForwardUnsafe.Text = "Forward (Unsafe Code)";
             this.btnForwardUnsafe.UseVisualStyleBackColor = true;
-            this.btnForwardUnsafe.Click += new System.EventHandler(this.btnForwardUnsafe_Click);
+            this.btnForwardUnsafe.Click += new System.EventHandler(this.BtnForwardUnsafeClick);
             // 
             // btnInverseUnsafe
             // 
@@ -218,7 +218,7 @@
             this.btnInverseUnsafe.TabIndex = 11;
             this.btnInverseUnsafe.Text = "Inverse (Unsafe Code)";
             this.btnInverseUnsafe.UseVisualStyleBackColor = true;
-            this.btnInverseUnsafe.Click += new System.EventHandler(this.btnInverseUnsafe_Click);
+            this.btnInverseUnsafe.Click += new System.EventHandler(this.BtnInverseUnsafeClick);
             // 
             // btnInverseSafe
             // 
@@ -228,7 +228,7 @@
             this.btnInverseSafe.TabIndex = 10;
             this.btnInverseSafe.Text = "Inverse (Safe Code)";
             this.btnInverseSafe.UseVisualStyleBackColor = true;
-            this.btnInverseSafe.Click += new System.EventHandler(this.btnInverseSafe_Click);
+            this.btnInverseSafe.Click += new System.EventHandler(this.BtnInverseSafeClick);
             // 
             // btnSave
             // 
@@ -238,7 +238,7 @@
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save Image";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSaveClick);
             // 
             // lblDirection
             // 

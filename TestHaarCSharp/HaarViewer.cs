@@ -1,18 +1,18 @@
-﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Globalization;
-using System.IO;
-using System.Windows.Forms;
-
-namespace TestHaarCSharp
+﻿namespace TestHaarCSharp
 {
+    using System;
+    using System.Drawing;
+    using System.Drawing.Imaging;
+    using System.Globalization;
+    using System.IO;
+    using System.Windows.Forms;
+
     public partial class HaarViewer : Form
     {
         public HaarViewer()
         {
-            InitializeComponent();
-            OriginalImage = (Bitmap)pictureBox1.Image;
+            this.InitializeComponent();
+            this.OriginalImage = (Bitmap)this.pictureBox1.Image;
         }
 
         private Bitmap OriginalImage { get; set; }
@@ -34,16 +34,17 @@ namespace TestHaarCSharp
 
             var transform = WaveletTransform.CreateTransform(forward, iterations);
 
-            ImageProcessor.ApplyTransform(bmp, channels, transform);
+            var imageProcessor = new ImageProcessor(channels, transform);
+            imageProcessor.ApplyTransform(bmp);
 
             if (forward)
             {
-                TransformedImage = new Bitmap(bmp);
+                this.TransformedImage = new Bitmap(bmp);
             }
 
-            pictureBox1.Image = bmp;
-            lblDirection.Text = forward ? "Forward" : "Inverse";
-            lblTransformTime.Text = string.Format("{0} milis.", (Environment.TickCount - time));
+            this.pictureBox1.Image = bmp;
+            this.lblDirection.Text = forward ? "Forward" : "Inverse";
+            this.lblTransformTime.Text = string.Format("{0} milis.", Environment.TickCount - time);
         }
 
         private void ApplyHaarTransform(bool forward, bool safe, string iterations)
@@ -55,56 +56,64 @@ namespace TestHaarCSharp
 
         private void ApplyHaarTransform(bool forward, bool safe, int iterations)
         {
-            var bmp = forward ? new Bitmap(OriginalImage) : new Bitmap(TransformedImage);
-            ApplyHaarTransform(forward, safe, iterations, bmp);
+            var bmp = forward ? new Bitmap(this.OriginalImage) : new Bitmap(this.TransformedImage);
+            this.ApplyHaarTransform(forward, safe, iterations, bmp);
         }
 
-        private void btnBrowse_Click(object sender, EventArgs e)
+        private void BtnBrowseClick(object sender, EventArgs e)
         {
             var open = new OpenFileDialog
+                           {
+                               Filter =
+                                   "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.tif)|*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.tif"
+                           };
+            if (open.ShowDialog() != DialogResult.OK)
             {
-                Filter =
-                    "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.tif)|*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.tif"
-            };
-            if (open.ShowDialog() != DialogResult.OK) return;
+                return;
+            }
+
             var tempbitmap = new Bitmap(open.FileName);
-            if (((tempbitmap.Width & (tempbitmap.Width - 1)) != 0) ||
-                ((tempbitmap.Height & (tempbitmap.Height - 1)) != 0))
+            if (((tempbitmap.Width & (tempbitmap.Width - 1)) != 0)
+                || ((tempbitmap.Height & (tempbitmap.Height - 1)) != 0))
             {
                 MessageBox.Show("Image width and height must be power of 2!");
                 return;
             }
-            OriginalImage = tempbitmap;
-            pictureBox1.Image = OriginalImage;
-            lblWidth.Text = OriginalImage.Width.ToString(CultureInfo.InvariantCulture);
-            lblHeight.Text = OriginalImage.Height.ToString(CultureInfo.InvariantCulture);
+
+            this.OriginalImage = tempbitmap;
+            this.pictureBox1.Image = this.OriginalImage;
+            this.lblWidth.Text = this.OriginalImage.Width.ToString(CultureInfo.InvariantCulture);
+            this.lblHeight.Text = this.OriginalImage.Height.ToString(CultureInfo.InvariantCulture);
         }
 
-        private void btnForwardSafe_Click(object sender, EventArgs e)
+        private void BtnForwardSafeClick(object sender, EventArgs e)
         {
-            ApplyHaarTransform(true, true, txtIterations.Text);
+            this.ApplyHaarTransform(true, true, this.txtIterations.Text);
         }
 
-        private void btnForwardUnsafe_Click(object sender, EventArgs e)
+        private void BtnForwardUnsafeClick(object sender, EventArgs e)
         {
-            ApplyHaarTransform(true, false, txtIterations.Text);
+            this.ApplyHaarTransform(true, false, this.txtIterations.Text);
         }
 
-        private void btnInverseSafe_Click(object sender, EventArgs e)
+        private void BtnInverseSafeClick(object sender, EventArgs e)
         {
-            ApplyHaarTransform(false, true, txtIterations.Text);
+            this.ApplyHaarTransform(false, true, this.txtIterations.Text);
         }
 
-        private void btnInverseUnsafe_Click(object sender, EventArgs e)
+        private void BtnInverseUnsafeClick(object sender, EventArgs e)
         {
-            ApplyHaarTransform(false, false, txtIterations.Text);
+            this.ApplyHaarTransform(false, false, this.txtIterations.Text);
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSaveClick(object sender, EventArgs e)
         {
             var sfd = new SaveFileDialog { Filter = "Images|*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.tif" };
             var format = ImageFormat.Png;
-            if (sfd.ShowDialog() != DialogResult.OK) return;
+            if (sfd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
 
             var ext = Path.GetExtension(sfd.FileName);
             switch (ext)
@@ -130,7 +139,8 @@ namespace TestHaarCSharp
                     format = ImageFormat.Tiff;
                     break;
             }
-            pictureBox1.Image.Save(sfd.FileName, format);
+
+            this.pictureBox1.Image.Save(sfd.FileName, format);
         }
     }
 }

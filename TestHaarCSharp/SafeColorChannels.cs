@@ -1,12 +1,11 @@
-﻿using System.Drawing;
-
-namespace TestHaarCSharp
+﻿namespace TestHaarCSharp
 {
+    using System.Drawing;
+
     public class SafeColorChannels : ColorChannels
     {
         public SafeColorChannels(int width, int height)
-            : base(width, height
-                )
+            : base(width, height)
         {
         }
 
