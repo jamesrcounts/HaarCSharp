@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHaarCSharp", "TestHaarCSharp\TestHaarCSharp.csproj", "{27E43DFA-FF1C-40CC-BD75-BEE2542C1A9B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaarCSharp.Tests", "HaarCSharp.Tests\HaarCSharp.Tests.csproj", "{DDAEEACF-6133-421E-B579-2932E687DAC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaarCSharp", "HaarCSharp\HaarCSharp.csproj", "{EB65E31D-DA49-4467-B869-D4D9DAA7E98A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,10 @@ Global
 		{DDAEEACF-6133-421E-B579-2932E687DAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDAEEACF-6133-421E-B579-2932E687DAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDAEEACF-6133-421E-B579-2932E687DAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB65E31D-DA49-4467-B869-D4D9DAA7E98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB65E31D-DA49-4467-B869-D4D9DAA7E98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB65E31D-DA49-4467-B869-D4D9DAA7E98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB65E31D-DA49-4467-B869-D4D9DAA7E98A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -45,21 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorChannels.cs" />
-    <Compile Include="ForwardWaveletTransform.cs" />
     <Compile Include="HaarViewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HaarViewer.Designer.cs">
       <DependentUpon>HaarViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcessor.cs" />
-    <Compile Include="InverseWaveletTransform.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SafeColorChannels.cs" />
-    <Compile Include="UnsafeColorChannels.cs" />
-    <Compile Include="WaveletTransform.cs" />
     <EmbeddedResource Include="HaarViewer.resx">
       <DependentUpon>HaarViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lena.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaarCSharp\HaarCSharp.csproj">
+      <Project>{EB65E31D-DA49-4467-B869-D4D9DAA7E98A}</Project>
+      <Name>HaarCSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
