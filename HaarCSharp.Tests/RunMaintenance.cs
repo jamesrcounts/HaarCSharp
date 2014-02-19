@@ -8,6 +8,7 @@ namespace HaarCSharp.Tests
     /// The run maintenance "test" cleans up abandoned .approved. files and verifies they
     /// are all gone.
     /// </summary>
+    // ReSharper disable once TestClassNameSuffixWarning
     public class RunMaintenance
     {
         /// <summary>
