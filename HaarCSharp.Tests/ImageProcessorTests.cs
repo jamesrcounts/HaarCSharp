@@ -14,7 +14,7 @@ namespace HaarCSharp.Tests
 
     using BinaryWriter = ApprovalTests.Writers.BinaryWriter;
 
-    public class ImageProcessorTest
+    public class ImageProcessorTests
     {
         private static readonly string DecomposedFilename = PathUtilities.GetAdjacentFile("full.bmp");
 

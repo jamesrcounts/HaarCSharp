@@ -8,7 +8,7 @@
     using Xunit;
 
     [UseReporter(typeof(DiffReporter))]
-    public class HaarViewerTest
+    public class HaarViewerTests
     {
         [Fact]
         public void ShowHaarViewer()
