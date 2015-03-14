@@ -113,6 +113,16 @@ namespace HaarCSharp.Tests
             }
         }
 
+        [Fact]
+        public void ResizeImage()
+        {
+            using (var originalImage = new Bitmap(OriginalFilename))
+            {
+                Bitmap resized = ImageProcessor.ToNormalSize(originalImage);
+                VerifyAsImage(resized);
+            }
+        }
+
         private static void VerifyAsImage(Image value)
         {
             using (Stream imageStream = new MemoryStream())

@@ -14,6 +14,11 @@ namespace TestHaarCSharp
             this.transform = transform;
         }
 
+        public static Bitmap ToNormalSize(Bitmap image)
+        {
+            return new Bitmap(image, new Size(128, 128));
+        }
+
         public void ApplyTransform(Bitmap bmp)
         {
             this.channels.SeparateColors(bmp);
